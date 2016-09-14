@@ -35,15 +35,9 @@ import com.android.internal.telephony.Call;
 import com.android.internal.telephony.CallStateException;
 import com.android.internal.telephony.Connection;
 import com.android.internal.telephony.DriverCall;
-import com.android.internal.telephony.GsmCdmaCallTracker;
-import com.android.internal.telephony.GsmCdmaConnection;
-import com.android.internal.telephony.GsmCdmaPhone;
 import com.android.internal.telephony.Phone;
-import com.android.internal.telephony.TelephonyComponentFactory;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.cdma.CdmaCallWaitingNotification;
-import com.android.internal.telephony.imsphone.ImsExternalCallTracker;
-import com.android.internal.telephony.imsphone.ImsExternalConnection;
 import com.android.phone.PhoneUtils;
 
 import com.google.common.base.Preconditions;
@@ -195,11 +189,11 @@ final class PstnIncomingCallNotifier {
             // the call to addNewUknownCall in Telecom.  This way when the request comes back to the
             // TelephonyConnectionService, we will be able to determine which unknown connection is
             // being added.
-            if (connection instanceof ImsExternalConnection) {
+            /*if (connection instanceof ImsExternalConnection) {
                 ImsExternalConnection externalConnection = (ImsExternalConnection) connection;
                 extras.putInt(ImsExternalCallTracker.EXTRA_IMS_EXTERNAL_CALL_ID,
                         externalConnection.getCallId());
-            }
+            }*/
 
             // Specifies the time the call was added. This is used by the dialer for analytics.
             extras.putLong(TelecomManager.EXTRA_CALL_CREATED_TIME_MILLIS,

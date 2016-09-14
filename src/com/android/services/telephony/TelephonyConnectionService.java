@@ -46,7 +46,6 @@ import com.android.internal.telephony.Phone;
 import com.android.internal.telephony.PhoneConstants;
 import com.android.internal.telephony.PhoneFactory;
 import com.android.internal.telephony.SubscriptionController;
-import com.android.internal.telephony.imsphone.ImsExternalCallTracker;
 import com.android.internal.telephony.imsphone.ImsPhone;
 import com.android.phone.MMIDialogActivity;
 import com.android.phone.PhoneUtils;
@@ -423,7 +422,7 @@ public class TelephonyConnectionService extends ConnectionService {
 
         // Handle the case where an unknown connection has an IMS external call ID specified; we can
         // skip the rest of the guesswork and just grad that unknown call now.
-        if (phone.getImsPhone() != null && extras != null &&
+        /*if (phone.getImsPhone() != null && extras != null &&
                 extras.containsKey(ImsExternalCallTracker.EXTRA_IMS_EXTERNAL_CALL_ID)) {
 
             ImsPhone imsPhone = (ImsPhone) phone.getImsPhone();
@@ -439,7 +438,7 @@ public class TelephonyConnectionService extends ConnectionService {
                     allConnections.add(connection);
                 }
             }
-        }
+        }*/
 
         if (allConnections.isEmpty()) {
             final Call ringingCall = phone.getRingingCall();

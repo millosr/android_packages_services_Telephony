@@ -274,8 +274,8 @@ public class ImsConferenceController {
         com.android.internal.telephony.Connection originalConnection =
                 telephonyConnection.getOriginalConnection();
 
-        return originalConnection != null && originalConnection.isMultiparty() &&
-                originalConnection.isMemberOfPeerConference();
+        return originalConnection != null && originalConnection.isMultiparty(); // &&
+                //originalConnection.isMemberOfPeerConference();
     }
 
     /**
@@ -324,14 +324,14 @@ public class ImsConferenceController {
         PhoneAccountHandle phoneAccountHandle = null;
 
         // Attempt to determine the phone account associated with the conference host connection.
-        if (connection.getPhone() != null &&
+        /*if (connection.getPhone() != null &&
                 connection.getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS) {
             Phone imsPhone = connection.getPhone();
             // The phone account handle for an ImsPhone is based on the default phone (ie the
             // base GSM or CDMA phone, not on the ImsPhone itself).
             phoneAccountHandle =
                     PhoneUtils.makePstnPhoneAccountHandle(imsPhone.getDefaultPhone());
-        }
+        }*/
 
         ImsConference conference = new ImsConference(mConnectionService, conferenceHostConnection,
                 phoneAccountHandle);

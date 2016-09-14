@@ -2463,7 +2463,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                 // No UICC in that slot.
                 continue;
             }
-            if (card.hasCarrierPrivilegeRules()) {
+            /*if (card.hasCarrierPrivilegeRules()) {
                 if (packages == null) {
                     // Only check packages in user 0 for now
                     packages = pm.getInstalledPackagesAsUser(
@@ -2479,7 +2479,7 @@ public class PhoneInterfaceManager extends ITelephony.Stub {
                         privilegedPackages.add(pkgInfo.packageName);
                     }
                 }
-            }
+            }*/
         }
         return privilegedPackages;
     }

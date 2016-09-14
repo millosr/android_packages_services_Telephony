@@ -252,11 +252,11 @@ abstract class TelephonyConnection extends Connection {
          * connection capability.
          * @param capabilities bit mask containing voice or video or both capabilities.
          */
-        @Override
+        /*@Override
         public void onConnectionCapabilitiesChanged(int capabilities) {
             mHandler.obtainMessage(MSG_SET_ORIGNAL_CONNECTION_CAPABILITIES,
                     capabilities, 0).sendToTarget();
-        }
+        }*/
 
         /**
          * The {@link com.android.internal.telephony.Connection} has reported a change in the
@@ -329,10 +329,10 @@ abstract class TelephonyConnection extends Connection {
          * Handles the phone exiting ECM mode by updating the connection capabilities.  During an
          * ongoing call, if ECM mode is exited, we will re-enable mute for CDMA calls.
          */
-        @Override
+        /*@Override
         public void onExitedEcmMode() {
             handleExitedEcmMode();
-        }
+        }*/
     };
 
     protected com.android.internal.telephony.Connection mOriginalConnection;
@@ -517,9 +517,9 @@ abstract class TelephonyConnection extends Connection {
             return;
         }
 
-        if (mOriginalConnection != null) {
+        /*if (mOriginalConnection != null) {
             mOriginalConnection.pullExternalCall();
-        }
+        }*/
     }
 
     public void performHold() {
@@ -703,7 +703,7 @@ abstract class TelephonyConnection extends Connection {
         clearOriginalConnection();
         mOriginalConnectionExtras.clear();
         mOriginalConnection = originalConnection;
-        mOriginalConnection.setTelecomCallId(getTelecomCallId());
+        //mOriginalConnection.setTelecomCallId(getTelecomCallId());
         getPhone().registerForPreciseCallStateChanged(
                 mHandler, MSG_PRECISE_CALL_STATE_CHANGED, null);
         getPhone().registerForHandoverStateChanged(
@@ -717,7 +717,7 @@ abstract class TelephonyConnection extends Connection {
 
         // Set video state and capabilities
         setVideoState(mOriginalConnection.getVideoState());
-        setOriginalConnectionCapabilities(mOriginalConnection.getConnectionCapabilities());
+        //setOriginalConnectionCapabilities(mOriginalConnection.getConnectionCapabilities());
         setWifi(mOriginalConnection.isWifi());
         setVideoProvider(mOriginalConnection.getVideoProvider());
         setAudioQuality(mOriginalConnection.getAudioQuality());
@@ -1280,8 +1280,9 @@ abstract class TelephonyConnection extends Connection {
      */
     protected boolean isImsConnection() {
         com.android.internal.telephony.Connection originalConnection = getOriginalConnection();
-        return originalConnection != null &&
-                originalConnection.getPhoneType() == PhoneConstants.PHONE_TYPE_IMS;
+        //return originalConnection != null &&
+        //        originalConnection.getPhoneType() == PhoneConstants.PHONE_TYPE_IMS;
+        return false;
     }
 
     /**

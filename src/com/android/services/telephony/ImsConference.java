@@ -510,8 +510,8 @@ public class ImsConference extends Conference {
         com.android.internal.telephony.Connection originalConnection =
                 mConferenceHost.getOriginalConnection();
 
-        return originalConnection != null && originalConnection.isMultiparty() &&
-                originalConnection.isConferenceHost();
+        return originalConnection != null && originalConnection.isMultiparty(); // &&
+                //originalConnection.isConferenceHost();
     }
 
     /**
@@ -558,7 +558,7 @@ public class ImsConference extends Conference {
         // Attempt to get the conference host's address (e.g. the host's own phone number).
         // We need to look at the default phone for the ImsPhone when creating the phone account
         // for the
-        if (mConferenceHost.getPhone() != null &&
+        /*if (mConferenceHost.getPhone() != null &&
                 mConferenceHost.getPhone().getPhoneType() == PhoneConstants.PHONE_TYPE_IMS) {
             // Look up the conference host's address; we need this later for filtering out the
             // conference host in conference event package data.
@@ -567,7 +567,7 @@ public class ImsConference extends Conference {
                     PhoneUtils.makePstnPhoneAccountHandle(imsPhone.getDefaultPhone());
             mConferenceHostAddress = TelecomAccountRegistry.getInstance(mTelephonyConnectionService)
                     .getAddress(mConferenceHostPhoneAccountHandle);
-        }
+        }*/
 
         mConferenceHost.addConnectionListener(mConferenceHostListener);
         mConferenceHost.addTelephonyConnectionListener(mTelephonyConnectionListener);
@@ -799,7 +799,7 @@ public class ImsConference extends Conference {
         com.android.internal.telephony.Connection originalConnection =
                 mConferenceHost.getOriginalConnection();
 
-        if (originalConnection != null &&
+        /*if (originalConnection != null &&
                 originalConnection.getPhoneType() != PhoneConstants.PHONE_TYPE_IMS) {
             if (Log.VERBOSE) {
                 Log.v(this,
@@ -833,7 +833,7 @@ public class ImsConference extends Conference {
             setDisconnected(new DisconnectCause(DisconnectCause.OTHER));
             disconnectConferenceParticipants();
             destroy();
-        }
+        }*/
 
         updateStatusHints();
     }
